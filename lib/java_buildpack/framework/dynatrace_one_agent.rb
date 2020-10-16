@@ -157,7 +157,7 @@ module JavaBuildpack
       end
 
       def endpoints(manifest)
-        "\"#{manifest['communicationEndpoints'].select.with_index { |word, idx| idx.between?(0,1) }.join(';')}\""
+        "\"#{manifest['communicationEndpoints'].join(';')}\""[0..100].partition(';').last
       end
 
       def error_file
