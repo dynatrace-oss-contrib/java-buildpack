@@ -157,8 +157,8 @@ module JavaBuildpack
       end
 
       def endpoints(manifest)
-        ep = "\"#{manifest['communicationEndpoints'].join(';')}\""
-        ep.partition(';').last
+        ep = "#{manifest['communicationEndpoints'].join(';')}"
+        "\"#{ep.partition(';').last}\""
       end
 
       def error_file
