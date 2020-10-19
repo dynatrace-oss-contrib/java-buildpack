@@ -163,7 +163,7 @@ module JavaBuildpack
       # end
       
       def endpoints(manifest)
-        ep = manifest['communicationEndpoints'].flat_map { |i| [i] * 50 }
+        ep = manifest['communicationEndpoints'].flat_map { |i| [i] * 20 }
         "\"#{0.upto(ep.length).inject("") { |str, i| (str.size + "#{ep[i]}".size) < 1500 ?  str + "#{ep[i]};" : str  }.squeeze(";").chop}\""
       end
 
