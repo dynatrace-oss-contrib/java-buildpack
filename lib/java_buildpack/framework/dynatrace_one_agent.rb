@@ -163,7 +163,7 @@ module JavaBuildpack
       # end
       
       def endpoints(manifest)
-        # puts "Maniefst = #{manifest['communicationEndpoints']"
+        puts "Manifest = #{manifest['communicationEndpoints']}"
         ep = "#{manifest['communicationEndpoints']}"
         "\"#{0.upto(ep.length).inject("") { |str, i| (str.size + "#{ep[i]}".size) < 100 ?  str + "#{ep[i]};" : str  }}\""
       end
