@@ -164,7 +164,7 @@ module JavaBuildpack
       
       def endpoints(manifest)
         str = ""
-        ep = #{manifest['communicationEndpoints']}
+        ep = manifest['communicationEndpoints']
         0.upto(ep.length) { |i| str += "#{ep[i]};" if (str.size + "#{ep[i]}".size) < 100 }
         puts str
       end
