@@ -156,9 +156,17 @@ module JavaBuildpack
         environment_variables.add_environment_variable(DT_LOGSTREAM, 'stdout') unless logstream?
       end
 
+      # def endpoints(manifest)
+      #   ep = "#{manifest['communicationEndpoints'].join(';')}"
+      #   ep = "(#{ep}+";")*9+"
+      #   "\"#{ep[0..1500].partition(';').last}\""
+      # end
+      
       def endpoints(manifest)
-        ep = "#{manifest['communicationEndpoints'].join(';')}"
-        "\"#{ep[0..1500].partition(';').last}\""
+        str = ""
+        ep = #{manifest['communicationEndpoints']}
+        0.upto(ep.length) { |i| str += "#{ep[i]};" if (str.size + "#{ep[i]}".size) < 100 }
+        puts str
       end
 
       def error_file
