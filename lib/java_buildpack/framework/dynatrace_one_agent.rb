@@ -163,10 +163,7 @@ module JavaBuildpack
       # end
       
       def endpoints(manifest)
-        str = ""
-        ep = manifest['communicationEndpoints']
-        0.upto(ep.length) { |i| str += "#{ep[i]};" if (str.size + "#{ep[i]}".size) < 100 }
-        puts str
+        puts "\"#{0.upto(ep.length).inject("") { |str, i| (str.size + "#{ep[i]}".size) < 100 ?  str + "#{ep[i]};" : str  }}\""
       end
 
       def error_file
