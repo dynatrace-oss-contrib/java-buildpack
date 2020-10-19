@@ -163,7 +163,7 @@ module JavaBuildpack
       # end
       
       def endpoints(manifest)
-        puts "\"#{0.upto(ep.length).inject("") { |str, i| (str.size + "#{ep[i]}".size) < 100 ?  str + "#{ep[i]};" : str  }}\""
+        puts "\"#{0.upto(endpoints.length).inject("") { |str, i| (str.size + "#{endpoints[i]}".size) < 100 ?  str + "#{endpoints[i]};" : str  }}\""
       end
 
       def error_file
